@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  email          String @id @unique
+  hashedPassword String
+  firstName      String
+  lastName       String
+
+  posts Post[]
+}
+
+model Post {
+  title    String @id @unique
+  content  String
+  authorId String
+
+  author  User     @relation(fields: [authorId], references: [email], onDelete: Cascade, onUpdate: Cascade)
+  blog    Blog?
+  project Project?
+}
+
+model Blog {
+  postId String @id @unique
+
+  post          Post           @relation(fields: [postId], references: [title], onDelete: Cascade, onUpdate: Cascade)
+  publishedBlog PublishedBlog?
+}
+
+model PublishedBlog {
+  blogId String   @id @unique
+  date   DateTime @default(now())
+
+  blog         Blog          @relation(fields: [blogId], references: [postId], onDelete: Cascade, onUpdate: Cascade)
+  featuredBlog FeaturedBlog?
+}
+
+model FeaturedBlog {
+  publishedBlogId String @id @unique
+
+  publishedBlog PublishedBlog @relation(fields: [publishedBlogId], references: [blogId], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Project {
+  postId String @id @unique
+
+  post             Post              @relation(fields: [postId], references: [title], onDelete: Cascade, onUpdate: Cascade)
+  publishedProject PublishedProject?
+}
+
+model PublishedProject {
+  projectId String   @id @unique
+  date      DateTime @default(now())
+
+  project         Project          @relation(fields: [projectId], references: [postId], onDelete: Cascade, onUpdate: Cascade)
+  featuredProject FeaturedProject?
+}
+
+model FeaturedProject {
+  publishedProjectId String @id @unique
+
+  publishedProject PublishedProject @relation(fields: [publishedProjectId], references: [projectId], onDelete: Cascade, onUpdate: Cascade)
+}
