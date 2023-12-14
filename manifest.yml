@@ -1,0 +1,6 @@
+---
+applications:
+  - name: a-team-api
+    instances: 1
+    buildpacks:
+      - go_buildpack

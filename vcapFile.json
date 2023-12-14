@@ -1,0 +1,32 @@
+{
+  "name": "api",
+  "vcap": {
+    "services": {
+      "mariadb": [
+        {
+          "name": "mariadb",
+          "invalidpropery": "mysql://root:admin@localhost:3306/test",
+          "credentials": {
+            "database": "d678c4d3-5539-465c-a101-dd24953f31a9",
+            "database_uri": "mysql://e8aac825-a5c5-4599-a647-95143966a7b7:eAEVoG1ngZZdpkqOjdQCHBx6A9d@10.250.164.90:3306/d678c4d3-5539-465c-a101-dd24953f31a9?reconnect=true",
+            "host": "10.250.164.90",
+            "hostname": "10.250.164.90",
+            "jdbcUrl": "jdbc:mysql://10.250.164.90:3306/d678c4d3-5539-465c-a101-dd24953f31a9?user=e8aac825-a5c5-4599-a647-95143966a7b7&password=eAEVoG1ngZZdpkqOjdQCHBx6A9d",
+            "jdbcUrlMariaDb": "jdbc:mariadb://10.250.164.90:3306/d678c4d3-5539-465c-a101-dd24953f31a9?user=e8aac825-a5c5-4599-a647-95143966a7b7&password=eAEVoG1ngZZdpkqOjdQCHBx6A9d",
+            "metricsEndpoints": [
+              "http://3fede5af-ac88-436e-8914-b50f759b6396.dbaas-mariadb-prod-05.ikube.corproot.net",
+              "http://3fede5af-ac88-436e-8914-b50f759b6396.dbaas-mariadb-prod-05.ikube.corproot.net/mariadb/0",
+              "http://3fede5af-ac88-436e-8914-b50f759b6396.dbaas-mariadb-prod-05.ikube.corproot.net/mariadb/1",
+              "http://3fede5af-ac88-436e-8914-b50f759b6396.dbaas-mariadb-prod-05.ikube.corproot.net/mariadb/2"
+            ],
+            "name": "d678c4d3-5539-465c-a101-dd24953f31a9",
+            "password": "eAEVoG1ngZZdpkqOjdQCHBx6A9d",
+            "port": 3306,
+            "uri": "mysql://e8aac825-a5c5-4599-a647-95143966a7b7:eAEVoG1ngZZdpkqOjdQCHBx6A9d@10.250.164.90:3306/d678c4d3-5539-465c-a101-dd24953f31a9?reconnect=true",
+            "username": "e8aac825-a5c5-4599-a647-95143966a7b7"
+          }
+        }
+      ]
+    }
+  }
+}
